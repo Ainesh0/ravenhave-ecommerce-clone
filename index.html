@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RavenHave's</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <div id="modalProductImage" class="modal-product-placeholder">
+                        <div id="modalPlaceholderText" class="modal-placeholder-text"></div>
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalProductTitle"></h2>
+                    <div class="modal-price">
+                        <span id="modalCurrentPrice" class="modal-current-price"></span>
+                        <span id="modalOriginalPrice" class="modal-original-price"></span>
+                        <span id="modalSoldOut" class="modal-sold-out-text"></span>
+                    </div>
+                    <div class="modal-description">
+                        <p>Premium quality streetwear designed for comfort and style. Made with high-quality materials and attention to detail.</p>
+                    </div>
+                    <div class="modal-size-selector">
+                        <h4>Size:</h4>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button id="addToCartBtn" class="add-to-cart-btn">ADD TO CART</button>
+                        <button class="buy-now-btn">BUY NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-left">
+                <a href="#" class="nav-link" onclick="showPage('home')">HOME</a>
+                <a href="#" class="nav-link" onclick="showPage('catalog')">CATALOG</a>
+                <a href="#" class="nav-link" onclick="showPage('contact')">CONTACT</a>
+                <a href="#" class="nav-link">FREE SHIPPING ALL OVER INDIA</a>
+            </div>
+            <div class="nav-center">
+                <div class="logo-text" onclick="showPage('home')">RavenHave's</div>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="cart-link" onclick="showPage('cart')">CART (0)</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home/Catalog Page -->
+    <main class="main" id="homePage">
+        <div class="product-grid">
+            <!-- Row 1 -->
+            <div class="product-card" data-product='{"title": "\"A\" AFFINITY VINTAGE WASH", "currentPrice": "RS. 1,599.00", "originalPrice": "RS. 1,799.00", "placeholder": "AFFINITY<br>VINTAGE WASH", "soldOut": false}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">AFFINITY<br>VINTAGE WASH</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">"A" AFFINITY VINTAGE WASH</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,599.00</span>
+                        <span class="original-price">RS. 1,799.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-product='{"title": "\"A\" BLISSED-OUT", "currentPrice": "RS. 1,599.00", "originalPrice": "RS. 1,899.00", "placeholder": "BLISSED-OUT", "soldOut": false}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">BLISSED-OUT</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">"A" BLISSED-OUT</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,599.00</span>
+                        <span class="original-price">RS. 1,899.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-product='{"title": "\"A\" MAVEN:RECODED", "currentPrice": "RS. 1,699.00", "originalPrice": "RS. 1,899.00", "placeholder": "MAVEN<br>RECODED", "soldOut": false}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">MAVEN<br>RECODED</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">"A" MAVEN:RECODED</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,699.00</span>
+                        <span class="original-price">RS. 1,899.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="product-card" data-product='{"title": "\"A\" MAVEN:SUNVEIL", "currentPrice": "RS. 1,599.00", "originalPrice": "RS. 1,799.00", "placeholder": "MAVEN<br>SUNVEIL", "soldOut": false}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">MAVEN<br>SUNVEIL</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">"A" MAVEN:SUNVEIL</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,599.00</span>
+                        <span class="original-price">RS. 1,799.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-product='{"title": "\"A\" SUNVEIL: SET", "currentPrice": "RS. 2,999.00", "originalPrice": "RS. 3,400.00", "placeholder": "SUNVEIL<br>SET", "soldOut": false}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">SUNVEIL<br>SET</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">"A" SUNVEIL: SET</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 2,999.00</span>
+                        <span class="original-price">RS. 3,400.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-product='{"title": "\"A\" SUNVEIL:SWEATPANTS", "currentPrice": "RS. 1,899.00", "originalPrice": "RS. 2,000.00", "placeholder": "SUNVEIL<br>SWEATPANTS", "soldOut": false}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">SUNVEIL<br>SWEATPANTS</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">"A" SUNVEIL:SWEATPANTS</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,899.00</span>
+                        <span class="original-price">RS. 2,000.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="product-card" data-product='{"title": "\"B\" OVERSIZED CROPPED TSHIRT VISION", "currentPrice": "RS. 1,499.00", "originalPrice": "", "placeholder": "OVERSIZED<br>VISION", "soldOut": false}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">OVERSIZED<br>VISION</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">"B" OVERSIZED CROPPED TSHIRT VISION</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,499.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-product='{"title": "\"B\" VANITY OVERSIZED OPIUM HOODIE", "currentPrice": "RS. 1,699.00", "originalPrice": "RS. 2,499.00", "placeholder": "VANITY<br>OPIUM HOODIE", "soldOut": false}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">VANITY<br>OPIUM HOODIE</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">"B" VANITY OVERSIZED OPIUM HOODIE</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,699.00</span>
+                        <span class="original-price">RS. 2,499.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card sold-out" data-product='{"title": "\"B\" VANITY RHINESTONE OFFWHITE CROPPED OVERSIZED", "currentPrice": "RS. 1,499.00", "originalPrice": "", "placeholder": "VANITY<br>RHINESTONE", "soldOut": true}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">VANITY<br>RHINESTONE</div>
+                    </div>
+                    <div class="sold-out-overlay">SOLD OUT</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">"B" VANITY RHINESTONE OFFWHITE CROPPED OVERSIZED</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,499.00</span>
+                        <span class="sold-out-text">— SOLD OUT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="product-card sold-out" data-product='{"title": "\"BRAINWASHED\" OVERSIZED CROPPED TEE", "currentPrice": "RS. 1,499.00", "originalPrice": "", "placeholder": "BRAINWASHED<br>TEE", "soldOut": true}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">BRAINWASHED<br>TEE</div>
+                    </div>
+                    <div class="sold-out-overlay">SOLD OUT</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">"BRAINWASHED" OVERSIZED CROPPED TEE</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,499.00</span>
+                        <span class="sold-out-text">— SOLD OUT</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card sold-out" data-product='{"title": "CROPPED RELAXED TSHIRT) UNDERWORLD GUARDIAN", "currentPrice": "RS. 1,399.00", "originalPrice": "", "placeholder": "UNDERWORLD<br>GUARDIAN", "soldOut": true}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">UNDERWORLD<br>GUARDIAN</div>
+                    </div>
+                    <div class="sold-out-overlay">SOLD OUT</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">CROPPED RELAXED TSHIRT) UNDERWORLD GUARDIAN</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,399.00</span>
+                        <span class="sold-out-text">— SOLD OUT</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card sold-out" data-product='{"title": "MAVEN RELAXED CROPPED TEE", "currentPrice": "RS. 1,299.00", "originalPrice": "", "placeholder": "MAVEN<br>CROPPED TEE", "soldOut": true}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">MAVEN<br>CROPPED TEE</div>
+                    </div>
+                    <div class="sold-out-overlay">SOLD OUT</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">MAVEN RELAXED CROPPED TEE</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,299.00</span>
+                        <span class="sold-out-text">— SOLD OUT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="product-card sold-out" data-product='{"title": "RELAXED VINTAGE WASH", "currentPrice": "RS. 1,399.00", "originalPrice": "", "placeholder": "RELAXED<br>VINTAGE WASH", "soldOut": true}'>
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <div class="placeholder-text">RELAXED<br>VINTAGE WASH</div>
+                    </div>
+                    <div class="sold-out-overlay">SOLD OUT</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">RELAXED VINTAGE WASH</h3>
+                    <div class="product-price">
+                        <span class="current-price">RS. 1,399.00</span>
+                        <span class="sold-out-text">— SOLD OUT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Contact Page -->
+    <main class="main contact-page" id="contactPage" style="display: none;">
+        <div class="contact-container">
+            <h1 class="contact-title">Contact Us</h1>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <div class="contact-item">
+                        <h3>📍 Address</h3>
+                        <p>123 Fashion Street<br>Style District, Mumbai 400001<br>Maharashtra, India</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📞 Phone</h3>
+                        <p>+91 98765 43210<br>+91 22 1234 5678</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>✉️ Email</h3>
+                        <p>info@ravenhaves.com<br>support@ravenhaves.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>🕒 Business Hours</h3>
+                        <p>Monday - Saturday: 10:00 AM - 8:00 PM<br>Sunday: 12:00 PM - 6:00 PM</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h2>Send us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <select id="subject" name="subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="order">Order Inquiry</option>
+                                <option value="product">Product Question</option>
+                                <option value="return">Return/Exchange</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Page -->
+    <main class="main cart-page" id="cartPage" style="display: none;">
+        <div class="cart-container">
+            <h1 class="cart-title">Shopping Cart</h1>
+            <div class="cart-content">
+                <div class="cart-items" id="cartItems">
+                    <div class="empty-cart" id="emptyCart">
+                        <div class="empty-cart-icon">🛒</div>
+                        <h2>Your cart is empty</h2>
+                        <p>Add some products to get started!</p>
+                        <button class="continue-shopping-btn" onclick="showPage('home')">Continue Shopping</button>
+                    </div>
+                </div>
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <h2>Order Summary</h2>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">RS. 0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="shipping">FREE</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax:</span>
+                        <span id="tax">RS. 0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">RS. 0.00</span>
+                    </div>
+                    <button class="checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#" class="footer-link">REFUND POLICY</a>
+            <a href="#" class="footer-link">PRIVACY POLICY</a>
+            <a href="#" class="footer-link">TERMS OF SERVICE</a>
+            <a href="#" class="footer-link">CONTACT INFORMATION</a>
+            <a href="#" class="footer-link">SHIPPING POLICY</a>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2025, RAVENHAVE'S</p>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        const modal = document.getElementById('productModal');
+        const closeBtn = document.querySelector('.close');
+        const productCards = document.querySelectorAll('.product-card');
+        const sizeButtons = document.querySelectorAll('.size-btn');
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        let selectedSize = '';
+        let cartCount = 0;
+        let cartItems = [];
+        let currentProductData = null;
+
+        // Page navigation
+        function showPage(page) {
+            // Hide all pages
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('contactPage').style.display = 'none';
+            document.getElementById('cartPage').style.display = 'none';
+            
+            // Show selected page
+            if (page === 'home' || page === 'catalog') {
+                document.getElementById('homePage').style.display = 'block';
+            } else if (page === 'contact') {
+                document.getElementById('contactPage').style.display = 'block';
+            } else if (page === 'cart') {
+                document.getElementById('cartPage').style.display = 'block';
+                updateCartDisplay();
+            }
+        }
+
+        // Open modal when product card is clicked
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const productData = JSON.parse(card.getAttribute('data-product'));
+                currentProductData = productData;
+                openModal(productData);
+            });
+        });
+
+        // Close modal when X is clicked
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Size selection
+        sizeButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                sizeButtons.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedSize = btn.getAttribute('data-size');
+                updateAddToCartButton();
+            });
+        });
+
+        // Add to cart functionality
+        addToCartBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (selectedSize && !addToCartBtn.disabled && currentProductData) {
+                addToCart(currentProductData, selectedSize);
+                showAddedToCartMessage();
+                modal.style.display = 'none';
+            }
+        });
+
+        function addToCart(productData, size) {
+            const cartItem = {
+                id: Date.now(),
+                title: productData.title,
+                price: productData.currentPrice,
+                originalPrice: productData.originalPrice,
+                size: size,
+                quantity: 1,
+                placeholder: productData.placeholder
+            };
+            
+            cartItems.push(cartItem);
+            cartCount++;
+            updateCartCounter();
+        }
+
+        function removeFromCart(itemId) {
+            cartItems = cartItems.filter(item => item.id !== itemId);
+            cartCount = cartItems.length;
+            updateCartCounter();
+            updateCartDisplay();
+        }
+
+        function updateQuantity(itemId, newQuantity) {
+            const item = cartItems.find(item => item.id === itemId);
+            if (item) {
+                item.quantity = newQuantity;
+                if (item.quantity <= 0) {
+                    removeFromCart(itemId);
+                } else {
+                    updateCartDisplay();
+                }
+            }
+        }
+
+        function openModal(productData) {
+            document.getElementById('modalProductTitle').textContent = productData.title;
+            document.getElementById('modalCurrentPrice').textContent = productData.currentPrice;
+            document.getElementById('modalOriginalPrice').textContent = productData.originalPrice;
+            document.getElementById('modalPlaceholderText').innerHTML = productData.placeholder;
+            
+            const soldOutElement = document.getElementById('modalSoldOut');
+            const addToCartBtn = document.getElementById('addToCartBtn');
+            
+            if (productData.soldOut) {
+                soldOutElement.textContent = '— SOLD OUT';
+                soldOutElement.style.display = 'inline';
+                addToCartBtn.disabled = true;
+                addToCartBtn.textContent = 'SOLD OUT';
+                addToCartBtn.classList.add('disabled');
+            } else {
+                soldOutElement.style.display = 'none';
+                addToCartBtn.disabled = false;
+                addToCartBtn.textContent = 'ADD TO CART';
+                addToCartBtn.classList.remove('disabled');
+            }
+
+            // Reset size selection
+            sizeButtons.forEach(btn => btn.classList.remove('selected'));
+            selectedSize = '';
+            updateAddToCartButton();
+
+            modal.style.display = 'block';
+        }
+
+        function updateAddToCartButton() {
+            if (!selectedSize && !addToCartBtn.disabled) {
+                addToCartBtn.style.opacity = '0.6';
+                addToCartBtn.style.cursor = 'not-allowed';
+            } else if (!addToCartBtn.disabled) {
+                addToCartBtn.style.opacity = '1';
+                addToCartBtn.style.cursor = 'pointer';
+            }
+        }
+
+        function updateCartCounter() {
+            const cartLink = document.querySelector('.cart-link');
+            cartLink.textContent = `CART (${cartCount})`;
+        }
+
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const emptyCart = document.getElementById('emptyCart');
+            const cartSummary = document.getElementById('cartSummary');
+            
+            if (cartItems.length === 0) {
+                emptyCart.style.display = 'block';
+                cartSummary.style.display = 'none';
+                cartItemsContainer.innerHTML = '';
+                cartItemsContainer.appendChild(emptyCart);
+            } else {
+                emptyCart.style.display = 'none';
+                cartSummary.style.display = 'block';
+                
+                cartItemsContainer.innerHTML = '';
+                
+                cartItems.forEach(item => {
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.className = 'cart-item';
+                    cartItemElement.innerHTML = `
+                        <div class="cart-item-image">
+                            <div class="cart-placeholder">
+                                <div class="cart-placeholder-text">${item.placeholder}</div>
+                            </div>
+                        </div>
+                        <div class="cart-item-details">
+                            <h3>${item.title}</h3>
+                            <p>Size: ${item.size}</p>
+                            <div class="cart-item-price">
+                                <span class="current-price">${item.price}</span>
+                                ${item.originalPrice ? `<span class="original-price">${item.originalPrice}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                        </div>
+                        <div class="cart-item-total">
+                            ${calculateItemTotal(item)}
+                        </div>
+                        <button class="remove-item" onclick="removeFromCart(${item.id})">×</button>
+                    `;
+                    cartItemsContainer.appendChild(cartItemElement);
+                });
+                
+                updateCartSummary();
+            }
+        }
+
+        function calculateItemTotal(item) {
+            const price = parseFloat(item.price.replace('RS. ', '').replace(',', ''));
+            const total = price * item.quantity;
+            return `RS. ${total.toLocaleString()}.00`;
+        }
+
+        function updateCartSummary() {
+            const subtotal = cartItems.reduce((total, item) => {
+                const price = parseFloat(item.price.replace('RS. ', '').replace(',', ''));
+                return total + (price * item.quantity);
+            }, 0);
+            
+            const tax = subtotal * 0.18; // 18% GST
+            const total = subtotal + tax;
+            
+            document.getElementById('subtotal').textContent = `RS. ${subtotal.toLocaleString()}.00`;
+            document.getElementById('tax').textContent = `RS. ${tax.toLocaleString()}.00`;
+            document.getElementById('total').textContent = `RS. ${total.toLocaleString()}.00`;
+        }
+
+        function showAddedToCartMessage() {
+            const message = document.createElement('div');
+            message.className = 'cart-message';
+            message.textContent = 'Added to cart!';
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                message.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                message.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(message);
+                }, 300);
+            }, 2000);
+        }
+
+        // Contact form functionality
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            showContactMessage('Thank you for your message! We will get back to you within 24 hours.');
+            this.reset();
+        });
+
+        function showContactMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'contact-message';
+            messageDiv.textContent = message;
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                messageDiv.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(messageDiv);
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
